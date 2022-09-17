@@ -1,0 +1,7 @@
+services:
+  fastapi:
+    image: okteto.dev/graphologist:latest
+    build: .
+    replicas: 1
+    ports:
+      - 8080:8080
