@@ -3,7 +3,7 @@ import os
 import shutil
 import uuid
 
-STATIC_FILE=os.getcwd()+ r"\server\utils\images"
+STATIC_FILE="images"
 
 
 # Save File locally

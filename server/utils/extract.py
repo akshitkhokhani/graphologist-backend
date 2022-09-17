@@ -766,7 +766,7 @@ def start(file_name):
 	global SLANT_ANGLE
 
 	# read image from disk
-	image = cv2.imread('server/utils/images/'+file_name)
+	image = cv2.imread('images/'+file_name)
 	#cv2.imshow(file_name,image)
 
 	# Extract pen pressure. It's such a cool function name!
