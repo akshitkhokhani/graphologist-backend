@@ -1,9 +1,10 @@
 from fastapi import APIRouter, Depends, UploadFile, File
 from fastapi.encoders import jsonable_encoder
+import os
 from fastapi.responses import JSONResponse
 
 from server.controllers.graphology_controler import Output
-from server.utils.save_file import save_file
+from server.utils.save_file import STATIC_FILE, save_file
 from server.utils.train_predict import graphology_prediction
 
 router = APIRouter(prefix="/services")
@@ -14,6 +15,8 @@ def grapohology_analysis(file: UploadFile = File(None)):
     try:
         file_name=save_file(file=file)
         prediction= graphology_prediction(file_name=file_name)
+        filepath= STATIC_FILE+"\\"+file_name
+        os.remove(filepath)
         if prediction is None:
             return JSONResponse(
                 status_code=200,
