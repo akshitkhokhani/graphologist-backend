@@ -1,0 +1,15 @@
+uvicorn
+fastapi
+SQLAlchemy
+pydantic
+pydantic[email]
+python-dotenv
+psycopg2-binary
+fastapi-jwt-auth
+passlib
+pre-commit
+gunicorn
+sklearn
+opencv-python
+matplotlib
+python-multipart
