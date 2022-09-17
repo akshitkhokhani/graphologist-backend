@@ -13,3 +13,4 @@ sklearn
 opencv-python
 matplotlib
 python-multipart
+opencv-contrib-python
