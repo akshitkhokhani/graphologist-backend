@@ -15,8 +15,12 @@ def grapohology_analysis(file: UploadFile = File(None)):
     try:
         file_name=save_file(file=file)
         prediction= graphology_prediction(file_name=file_name)
-        filepath= STATIC_FILE+"\\"+file_name
-        os.remove(filepath)
+        try:
+            filepath= STATIC_FILE+file_name
+            os.remove(filepath)
+        except:
+            filepath= STATIC_FILE+"\\"+file_name
+            os.remove(filepath)
         if prediction is None:
             return JSONResponse(
                 status_code=200,
