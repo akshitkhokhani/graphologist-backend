@@ -12,14 +12,16 @@ router = APIRouter(prefix="/services")
 
 @router.post("/graphology")
 def grapohology_analysis(file: UploadFile = File(None)):
-    try:
+    # try:
         file_name=save_file(file=file)
         prediction= graphology_prediction(file_name=file_name)
         try:
             filepath= STATIC_FILE+file_name
+            print("+++++++++++++++++++++try remove+++++++++++++++++++++")
             os.remove(filepath)
         except:
-            filepath= STATIC_FILE+"\\"+file_name
+            filepath= STATIC_FILE+"/"+file_name
+            print("+++++++++++++++++++++except remove+++++++++++++++++++++")
             os.remove(filepath)
         if prediction is None:
             return JSONResponse(
@@ -41,13 +43,13 @@ def grapohology_analysis(file: UploadFile = File(None)):
                     "error": None,
                 },
             )
-    except Exception as e:
-        return JSONResponse(
-            status_code=400,
-            content={
-                "success": False,
-                "data": None,
-                "message": "Something went wrong",
-                "error": str(e),
-            },
-        )
+    # except Exception as e:
+    #     return JSONResponse(
+    #         status_code=400,
+    #         content={
+    #             "success": False,
+    #             "data": None,
+    #             "message": "Something went wrong",
+    #             "error": str(e),
+    #         },
+    #     )

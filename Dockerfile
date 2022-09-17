@@ -1,22 +1,3 @@
-# FROM python:3.9.5
-# WORKDIR /app
-
-# RUN apt-get update
-# RUN apt-get install ffmpeg libsm6 libxext6  -y
-# RUN apt-get update && apt-get install -y python3-opencv
-# RUN pip install opencv-python
-
-# # # install extra dependencies
-# COPY . .
-
-# COPY requirements.txt requirements.txt
-# RUN pip install --upgrade pip
-# RUN pip install -r requirements.txt
-
-
-# EXPOSE 8080
-# ENTRYPOINT ["uvicorn", "server.app:app", "--host", "0.0.0.0", "--port", "8080","--timeout-keep-alive","300"]
-
 FROM ubuntu
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
